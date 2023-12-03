@@ -1,0 +1,42 @@
+@use '_reset.scss';
+@import '_variables.scss';
+@import '_components.scss';
+
+body {
+    font-family: $font-inter;
+    color: $text-black;
+}
+
+.menu-open body {
+    overflow: hidden;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: clip;
+}
+
+[class*='__container'] {
+    max-width: 1290px; // 1260px + 30px
+    padding-inline: 15px;
+    margin-inline: auto;
+    height: 100%;
+}
+
+.page {
+    padding-block: 40px 100px;
+    flex: auto
+}
+
+
+@media (max-width: 767.98px) {
+    .page {
+        padding-block: 20px 50px;
+    }
+}
+
+@import '_header.scss';
+@import '_main.scss';
+@import '_footer.scss';

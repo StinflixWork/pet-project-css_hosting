@@ -1,0 +1,111 @@
+%button-shared {
+    padding-block: 12px;
+    padding-inline: 18px;
+    color: #FFF;
+    font-family: $font-poppins;
+    font-size: 0.875rem; // 14px
+    line-height: 1.71; // 24/14 
+    background-color: $red-main;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: all .3s ease;
+}
+
+.button-primary {
+    @extend %button-shared;
+
+    &:hover {
+        background-color: #CE1E1E;
+    }
+}
+
+.button-secondary {
+    @extend %button-shared;
+
+    background-color: transparent;
+    color: $text-black;
+    border-color: $text-black;
+
+    &:hover {
+        background-color: #CE1E1E;
+        color: #fff;
+        border-color: transparent;
+    }
+}
+
+.shadow-btn {
+    box-shadow: 0px 0px 64px 0px rgba(176, 0, 0, 0.30);
+}
+
+// Custom checkbox
+.checkbox-wrapper input {
+    appearance: none;
+    background-color: $red-main;
+    border-radius: 72px;
+    border-style: none;
+    flex-shrink: 0;
+    height: 50px;
+    margin: 0;
+    position: relative;
+    width: 93px;
+}
+
+.checkbox-wrapper input::before {
+    bottom: -6px;
+    content: "";
+    left: -6px;
+    position: absolute;
+    right: -6px;
+    top: -6px;
+}
+
+.checkbox-wrapper input,
+.checkbox-wrapper input::after {
+    transition: all .2s ease-out;
+}
+
+.checkbox-wrapper input::after {
+    background-color: #fff;
+    border-radius: 50%;
+    content: "";
+    height: 30px;
+    left: 9px;
+    position: absolute;
+    top: 10px;
+    width: 30px;
+}
+
+.checkbox-wrapper input[type=checkbox] {
+    cursor: default;
+}
+
+.checkbox-wrapper input:hover {
+    background-color: #CE1E1E;
+    transition-duration: 0s;
+}
+
+.checkbox-wrapper input:checked::after {
+    background-color: #fff;
+    left: 55px;
+}
+
+.checkbox-wrapper :focus:not(.focus-visible) {
+    outline: 0;
+}
+
+@media (max-width: 767.98px) {
+    .checkbox-wrapper input {
+        width: 70px;
+        height: 35px;
+    }
+
+    .checkbox-wrapper input::after {
+        height: 20px;
+        width: 20px;
+        top: 8px;
+    }
+
+    .checkbox-wrapper input:checked::after {
+        left: 40px;
+    }
+}

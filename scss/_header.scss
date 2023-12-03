@@ -1,0 +1,230 @@
+@import '_variables.scss';
+
+.header {
+    height: 145px;
+}
+
+.header__container {
+    display: flex;
+    column-gap: 25px;
+    align-items: center;
+}
+
+.header__logo {
+    flex: 0 0 91px;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {}
+
+.header__menu {
+    flex: auto;
+}
+
+.menu {}
+
+.menu__body {}
+
+.menu-open .menu__body,
+.menu-open .menu__body::before {
+    inset-inline-start: 0;
+}
+
+.menu__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 32px;
+    row-gap: 12px;
+}
+
+.menu__item {}
+
+.menu__link {
+    color: $text-black;
+    font-family: $font-poppins;
+    font-weight: 600;
+    text-transform: capitalize;
+    position: relative;
+    display: block;
+
+    &::before {
+        content: '';
+        width: 0;
+        height: 2px;
+        background-color: $red-main;
+        border-radius: 10px;
+        position: absolute;
+        inset-block-end: -5px;
+        inset-inline-start: 50%;
+        transform: translateX(-50%);
+        transition: all .3s ease;
+    }
+
+    &:hover::before {
+        width: 80%;
+    }
+}
+
+.header__contacts {}
+
+.contact-header {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    color: $text-black;
+    font-family: $font-poppins;
+    font-weight: 600;
+    position: relative;
+    z-index: 10;
+
+    .contact-header__account {
+        padding-inline-end: 30px;
+        transition: color .3s ease;
+
+        &:hover {
+            color: $text-silver-300;
+        }
+    }
+
+    .contact-header__phone {
+        font-style: normal;
+        padding-inline-start: 30px;
+        border-inline-start: 1px solid #DAD8D8;
+        position: relative;
+
+        img {
+            width: 20px;
+            height: 20px;
+            margin-inline-end: 3px;
+        }
+    }
+}
+
+.icon-menu {
+    display: none;
+}
+
+@media (max-width: 991.98px) {
+    .menu__list {
+        padding-inline-start: 35px;
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .menu__body {
+        position: fixed;
+        inset-block-start: 0;
+        inset-inline-start: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: #DAD8D8;
+        padding-block: 160px 40px;
+        padding-inline: 30px;
+        overflow: auto;
+        z-index: 5;
+        transition: inset-inline-start .3s ease-in-out;
+
+        &::before {
+            content: '';
+            position: fixed;
+            inset-block-start: 0;
+            inset-inline-start: -100%;
+            width: 100%;
+            height: 140px;
+            background-color: #DAD8D8;
+            z-index: 2;
+            transition: inset-inline-start .3s ease-in-out;
+        }
+    }
+
+    .menu__list {
+        flex-direction: column;
+        row-gap: 50px;
+
+        .menu__link {
+            font-size: 24px;
+            text-align: center;
+
+            &:hover::before {
+                width: 30%;
+            }
+        }
+    }
+
+    .icon-menu {
+        display: block;
+        flex: 0 0 30px;
+        height: 18px;
+        position: relative;
+        z-index: 10;
+    }
+
+    .icon-menu span,
+    .icon-menu::before,
+    .icon-menu::after {
+        position: absolute;
+        inset-inline-start: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $text-black;
+    }
+
+    .icon-menu::before,
+    .icon-menu::after {
+        content: '';
+        transition: all .3s ease-in-out;
+    }
+
+    .icon-menu::before {
+        inset-block-start: 0;
+    }
+
+    .icon-menu::after {
+        inset-block-end: 0;
+    }
+
+    .icon-menu span {
+        inset-block-start: 50%;
+        transform: translateY(-50%);
+        transition: all .3s ease-in-out;
+    }
+
+    .menu-open .icon-menu span {
+        width: 0;
+    }
+
+    .menu-open .icon-menu::before {
+        inset-block-start: 50%;
+        transform: translateY(-50%) rotate(-45deg);
+    }
+
+    .menu-open .icon-menu::after {
+        inset-block-end: 50%;
+        transform: translateY(50%) rotate(45deg);
+    }
+}
+
+@media (max-width: 549.98px) {
+    .contact-header {
+        .contact-header__account {
+            padding-inline-end: 10px;
+        }
+
+        .contact-header__phone {
+            padding-inline-start: 10px;
+        }
+    }
+}
+
+@media (max-width: 499.98px) {
+    .header__container {
+        column-gap: 15px;
+    }
+
+    .contact-header__phone span {
+        display: none;
+    }
+}
